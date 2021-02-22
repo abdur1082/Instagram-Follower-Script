@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RZLSFT · Instagram ücretsiz yorum scripti</title>
+    <title>RZLSFT · Instagram ücretsiz Takipçi scripti</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <meta name="theme-color" content="#333549">
 
 
     <style>
-    	html,
+      html,
 body {
   
   overflow-x: hidden; /* Prevent scroll on narrow devices */
@@ -103,7 +103,7 @@ body {
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
     <H1>R</H1>
     <div class="lh-1">
-      <h1 class="h6 mb-0 text-white lh-1">zlsft - Instagram ücretsiz yorum scripti</h1>
+      <h1 class="h6 mb-0 text-white lh-1">zlsft - Instagram ücretsiz takipçi scripti</h1>
     
     </div>
   </div>
@@ -117,7 +117,7 @@ body {
   <fieldset >
    
     <div class="mb-3">
-    	<br>
+      <br>
       <label  class="form-label">Kullanıcı Adı :</label>
       <input name="kullanici" type="text" class="form-control">
     </div>
@@ -138,9 +138,9 @@ body {
      ?>
    
    <div align="center">
-   	<div id="loader2" style="color: #6f42c1!important;" class="spinner-border" role="status">
-		</div>
-   	 <button id="yorumButton" type="button" class="btn btn-primary" style="background-color: #6f42c1!important; border-color: #6f42c1!important;">Yorumları Gönder</button>
+    <div id="loader2" style="color: #6f42c1!important;" class="spinner-border" role="status">
+    </div>
+     <button id="yorumButton" type="button" class="btn btn-primary" style="background-color: #6f42c1!important; border-color: #6f42c1!important;">Takipçileri Gönder</button>
    </div>
   </fieldset>
 </form>
@@ -153,7 +153,7 @@ body {
   <fieldset >
    
     <div class="mb-3">
-    	<br>
+      <br>
       <label  class="form-label">Username</label>
       <input name="username" type="text" class="form-control">
     </div>
@@ -168,9 +168,9 @@ body {
     </div>
    
    <div align="center">
-   	<div id="loader" style="color: #6f42c1!important;" class="spinner-border" role="status">
-		</div>
-   	 <button type="button" id="userButton" class="btn btn-primary" style="background-color: #6f42c1!important;border-color: #6f42c1!important;">User Ekle</button>
+    <div id="loader" style="color: #6f42c1!important;" class="spinner-border" role="status">
+    </div>
+     <button type="button" id="userButton" class="btn btn-primary" style="background-color: #6f42c1!important;border-color: #6f42c1!important;">User Ekle</button>
    </div>
   </fieldset>
 </form>
@@ -192,9 +192,9 @@ foreach ($donusturme as $donus) {
   @$proxy = str_replace("]", "", $degerler[2]);
 
   if (!empty($password)) {
-  	# code...
+    # code...
  
-	?>
+  ?>
  <div class="d-flex text-muted pt-3">
       <svg  class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title></title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg><?=$s?>
 
@@ -203,9 +203,9 @@ foreach ($donusturme as $donus) {
         
       </p>
     </div>
-	<?php
-	 }
-	 $s++;
+  <?php
+   }
+   $s++;
 }
 fclose($dosya);
  ?>
@@ -223,66 +223,66 @@ fclose($dosya);
 <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script>
 $(document).ready(function(){
-	$("#loader").hide(1);
-	$("#userButton").on("click", function(){ 
-		$("#loader").toggle(1);
-		$("#userButton").hide(1);
-		var userkaydetme = $("#userKaydet").serialize(); 
-		$.ajax({
-			url:'controller.php',
-			type:'POST',
-			data:userkaydetme,
-			dataType: 'json',
-			success:function(e){ 
-				$("#loader").hide(1);
-				$("#userButton").toggle(1);
-				if (e.durum == "hata") {
-					Swal.fire(
+  $("#loader").hide(1);
+  $("#userButton").on("click", function(){ 
+    $("#loader").toggle(1);
+    $("#userButton").hide(1);
+    var userkaydetme = $("#userKaydet").serialize(); 
+    $.ajax({
+      url:'controller.php',
+      type:'POST',
+      data:userkaydetme,
+      dataType: 'json',
+      success:function(e){ 
+        $("#loader").hide(1);
+        $("#userButton").toggle(1);
+        if (e.durum == "hata") {
+          Swal.fire(
   e.message,
   '',
   'warning'
 )
-				}else if(e.durum == "basarili"){
-					Swal.fire(
+        }else if(e.durum == "basarili"){
+          Swal.fire(
   e.message,
   '',
   'success'
 )
-				}
-			}
-		});
-		
-	});
+        }
+      }
+    });
+    
+  });
 $("#loader2").hide(1);
-	$("#yorumButton").on("click", function(){ 
-		$("#loader2").toggle(1);
-		$("#yorumButton").hide(1);
-		var yorum = $("#yorumForm").serialize(); 
-		$.ajax({
-			url:'controller.php',
-			type:'POST',
-			data:yorum,
-			dataType: 'json',
-			success:function(e){ 
-				$("#loader2").hide(1);
-				$("#yorumButton").toggle(1);
-				if (e.durum == "hata") {
-					Swal.fire(
+  $("#yorumButton").on("click", function(){ 
+    $("#loader2").toggle(1);
+    $("#yorumButton").hide(1);
+    var yorum = $("#yorumForm").serialize(); 
+    $.ajax({
+      url:'controller.php',
+      type:'POST',
+      data:yorum,
+      dataType: 'json',
+      success:function(e){ 
+        $("#loader2").hide(1);
+        $("#yorumButton").toggle(1);
+        if (e.durum == "hata") {
+          Swal.fire(
   e.message,
   '',
   'warning'
 )
-				}else if(e.durum == "basarili"){
-					Swal.fire(
+        }else if(e.durum == "basarili"){
+          Swal.fire(
   e.message,
   '',
   'success'
 )
-				}
-			}
-		});
-		
-	});
+        }
+      }
+    });
+    
+  });
 });
 </script>
   </body>

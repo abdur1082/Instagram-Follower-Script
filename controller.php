@@ -2,13 +2,13 @@
 
 ########
 #
-# RZLSFT- INSTAGRAM COMMENT SCRIPT
-# VER : V1.1
+# RZLSFT- INSTAGRAM FOLLOWER SCRIPT
+# VER : V1
 #
 ######## 
 require __DIR__ . '/vendor/autoload.php';
 use Phpfastcache\Helper\Psr16Adapter;
-//error_reporting(0);
+error_reporting(0);
 
 
 if (@!empty($_POST['kullanici'])) {
